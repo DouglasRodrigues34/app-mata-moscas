@@ -10,23 +10,33 @@ function ajustaTamanhoPalcoJogo() {
 
 ajustaTamanhoPalcoJogo()
 
-var posicaoX = Math.floor(Math.random() * largura) - 90;
-var posicaoY = Math.floor(Math.random() * altura) - 90;
+function posicaoRandomica() {
 
-posicaoX = posicaoX < 0 ? 0 : posicaoX;
-posicaoY = posicaoY < 0 ? 0 : posicaoY;
+    // remover o mosquito anterior (caso exista)
+    if(document.getElementById('mosca')) {
+        document.getElementById('mosca').remove()
+    }
 
-console.log(posicaoX, posicaoY);
+    var posicaoX = Math.floor(Math.random() * largura) - 90;
+    var posicaoY = Math.floor(Math.random() * altura) - 90;
 
-// cria o elemento html
-var mosca = document.createElement('img');
-mosca.src = '/assets/img/mosca.png';
-mosca.className = tamanhoAleatorio() + ' ' + ladoAleatorio();
-mosca.style.left = posicaoX + 'px';
-mosca.style.top = posicaoY + 'px';
-mosca.style.position = 'absolute';
+    posicaoX = posicaoX < 0 ? 0 : posicaoX;
+    posicaoY = posicaoY < 0 ? 0 : posicaoY;
 
-document.body.appendChild(mosca);
+    console.log(posicaoX, posicaoY);
+
+    // cria o elemento html
+    var mosca = document.createElement('img');
+    mosca.src = '/assets/img/mosca.png';
+    mosca.className = tamanhoAleatorio() + ' ' + ladoAleatorio();
+    mosca.style.left = posicaoX + 'px';
+    mosca.style.top = posicaoY + 'px';
+    mosca.style.position = 'absolute';
+    mosca.id = 'mosca'
+
+    document.body.appendChild(mosca);
+
+}
 
 function tamanhoAleatorio() {
     var classe = Math.floor(Math.random() * 3);
