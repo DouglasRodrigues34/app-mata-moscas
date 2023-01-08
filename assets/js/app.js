@@ -18,7 +18,7 @@ function posicaoRandomica() {
         document.getElementById('mosca').remove();
 
         if(vidas > 3) {
-            alert('Interromper o jogo (gamer over)');
+            window.location.href = 'fim_de_jogo.html'
         }else {
             document.getElementById('v' + vidas).src="/assets/img/coracao_vazio.png";
             vidas++;
