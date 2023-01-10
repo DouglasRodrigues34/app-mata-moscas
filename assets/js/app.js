@@ -3,6 +3,24 @@ var largura = 0;
 var vidas = 1;
 var tempo = 30;
 
+var criarMoscaTempo = 1500
+
+var nivel = window.location.search;
+nivel = nivel.replace('?', '');
+
+if(nivel === 'normal') {
+    //1500
+    var criarMoscaTempo = 1500;
+
+}else if(nivel === 'dificil') {
+    //1000
+    var criarMoscaTempo = 1000;
+
+}else if(nivel === 'chucknorris') {
+    //750
+    var criarMoscaTempo = 750;
+}
+
 function ajustaTamanhoPalcoJogo() {
 
     altura = window.innerHeight;
